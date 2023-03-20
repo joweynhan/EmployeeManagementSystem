@@ -1,0 +1,50 @@
+﻿@model EmployeeManagementSystem.Models.Department
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<style>
+
+    dl {
+        margin-bottom: 50px;
+    }
+
+        dl dt {
+          /*  background: #fff;*/
+            color: black;
+            float: left;
+            font-weight: bold;
+            border: 1px solid #fff;
+            padding: 5px;
+            width: 100px;
+        }
+
+        dl dd {
+            border: 1px solid #fff;
+            margin: 2px 0;
+            padding: 5px 0;
+        }
+</style>
+<h2>Delete Department</h2>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+<div>
+
+
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name):
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        &nbsp;
+        <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-table"> </i>Back to List</a>
+    </form>
+</div>

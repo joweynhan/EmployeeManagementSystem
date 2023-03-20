@@ -1,0 +1,91 @@
+﻿@model IEnumerable<EmployeeManagementSystem.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h1>List of Employees</h1>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+<p class="align-content-end">
+    <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"> </i>New Employee</a>
+</p>
+<style>
+
+    .tableData {
+        background-color: #FFF;
+        width: 33.33%;
+        text-align: center;
+        padding: 10px;
+        border: 1px solid black;
+    }
+
+    .tableHeader {
+        background-color: #000000;
+        width: 33.33%;
+        text-align: center;
+        padding: 10px;
+        color: #FFF;
+        border: 2px solid black;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+</style>
+<table class="table table-hover table-bordered text-center">
+    <thead>
+        <tr class="tableHeader">
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DOB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Departments)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            <tr class="tableData">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Departments.Name)
+            </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-secondary"><i class="fas fa-edit"> </i>Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary"><i class="fas fa-search"> </i>Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="fas fa-trash"> </i>Delete</a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

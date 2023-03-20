@@ -1,0 +1,106 @@
+﻿@model EmployeeManagementSystem.Models.Employee
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<style>
+    input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        font-size: 16px;
+    }
+
+        input[type=text]:focus {
+            border: 2px solid #555;
+        }
+
+
+    .input-wrapper input {
+        background-color: #eee;
+        border: none;
+        padding: 1rem;
+        font-size: 1rem;
+        width: 20em;
+        border-radius: 1rem;
+        color: lightcoral;
+        box-shadow: 0 0.4rem #dfd9d9;
+        cursor: pointer;
+    }
+
+        .input-wrapper input:focus {
+            outline-color: lightcoral;
+        }
+</style>
+<h1>Edit Employee</h1>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <div class="input-wrapper">
+                    <label asp-for="Id"></label>
+                    <input asp-for="Id" readonly class="input form-control" placeholder="Id" />
+                </div>
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="input-wrapper">
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" class="input form-control" placeholder="Name" />
+                </div>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <div class="input-wrapper">
+                    <label asp-for="DOB"></label>
+                    <input asp-for="DOB" class="input form-control" placeholder="Date of Birth" />
+                </div>
+                <span asp-validation-for="DOB" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <div class="input-wrapper">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="input form-control" placeholder="Email" />
+                </div>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <div class="input-wrapper">
+                    <label asp-for="Phone"></label>
+                    <input asp-for="Phone" class="input form-control" placeholder="Phone" />
+                </div>
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="input-wrapper">
+                    <label asp-for="Departments"></label>
+                    <select asp-for="DepartmentId" class="selectDep form-control" asp-items="ViewBag.DepartmentId"></select>
+                </div>
+            </div>
+            <div class="form-group" style="padding-top:30px;">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div style="padding-top:30px;">
+    <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-table"> </i>Back to List</a>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,48 @@
+﻿@model EmployeeManagementSystem.Models.Department
+
+@{
+    ViewData["Title"] = "Details";
+}
+<style>
+
+
+    dl {
+        margin-bottom: 50px;
+    }
+
+        dl dt {
+            /*background: #fff;*/
+            color: black;
+            float: left;
+            font-weight: bold;
+            padding: 5px;
+            width: 100px;
+            border: 1px solid #fff;
+        }
+
+        dl dd {
+            margin: 2px 0;
+            padding: 5px 0;
+            border: 1px solid #fff;
+        }
+</style>
+<h2>Department Details</h2>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+<div>
+
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name):
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary"><i class="fas fa-edit"> </i>Edit</a>
+    &nbsp;
+    <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-table"> </i>Back to List</a>
+</div>

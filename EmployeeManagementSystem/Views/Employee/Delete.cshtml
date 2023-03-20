@@ -1,0 +1,72 @@
+﻿@model EmployeeManagementSystem.Models.Employee
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<style>
+
+    dl {
+        margin-bottom: 50px;
+    }
+
+        dl dt {
+            /*background: #fff;*/
+            color: black;
+            float: left;
+            font-weight: bold;
+            padding: 5px;
+            width: 100px;
+            border: 1px solid #fff;
+        }
+
+        dl dd {
+            margin: 2px 0;
+            border: 1px solid #fff;
+            padding: 5px 0;
+        }
+</style>
+<h2>Delete Employee</h2>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name):
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DOB):
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DOB)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email):
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Phone):
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Departments):
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Departments.Name)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        &nbsp;
+        <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-table"> </i>Back to List</a>
+    </form>
+</div>

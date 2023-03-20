@@ -1,0 +1,64 @@
+﻿@model IEnumerable<EmployeeManagementSystem.Models.Department>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>List of Departments</h1>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+<p class="align-content-end">
+    <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"> </i>New Department</a>
+</p>
+
+<style>
+
+
+    .tableData {
+        background-color: #FFF;
+        width: 33.33%;
+        text-align: center;
+        padding: 10px;
+        border: 1px solid black;
+    }
+
+    .tableHeader {
+        background-color: #000000;
+        width: 33.33%;
+    text-align: center;
+    padding: 10px;
+    color: #FFF;
+    border: 2px solid black;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+</style>
+<table class="table table-hover table-bordered text-center" >
+    <thead>
+        <tr class="tableHeader">
+            <th scope="col" class="">ID</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Name)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+
+            <tr class="tableData">
+            <th scope="row">@Html.DisplayFor(modelItem => item.Id)</th>
+                <td scope="row">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-secondary"><i class="fas fa-edit"> </i>Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary"><i class="fas fa-search"> </i>Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="fas fa-trash"> </i>Delete</a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>
